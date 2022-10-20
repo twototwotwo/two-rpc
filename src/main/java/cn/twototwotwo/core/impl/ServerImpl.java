@@ -1,6 +1,7 @@
 package cn.twototwotwo.core.impl;
 
 import cn.twototwotwo.core.Server;
+import cn.twototwotwo.netty.ChannelHandlerImpl;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -15,7 +16,7 @@ public class ServerImpl implements Server {
 
     @Override
     public void init() {
-        EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workerGroup)
@@ -24,7 +25,8 @@ public class ServerImpl implements Server {
             @Override
             protected void initChannel(SocketChannel socketChannel) throws Exception {
                 // TODO add handler
-                socketChannel.pipeline().addLast(null);
+                System.out.println(22);
+                socketChannel.pipeline().addLast(new ChannelHandlerImpl());
             }
         })
         .option(ChannelOption.SO_BACKLOG, 1024)
