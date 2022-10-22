@@ -1,28 +1,27 @@
 package cn.twototwotwo.core.protocol;
 
-public class Protocol {
+public abstract class Protocol {
+    public final static Byte VERSION = 0;
+    public final static Byte TYPE_REQUEST = 0;
 
-    public static Byte TYPE_REQUEST = 0;
+    public final static Byte TYPE_RESPONSE = 1;
 
-    public static Byte TYPE_RESPONSE = 1;
+    /**
+    * must equal Protocol.VERSION
+     */
+    public byte version = VERSION;
 
     /**
      * type=0 : @see Request
      * type=1 : @see Response
      */
-    public Byte type;
+    public byte type;
 
     /**
      * how to serizable/deserizable
     * @see cn.twototwotwo.serizable.SerializeType
      */
-    public Byte serializeType;
+    public byte serializeType;
 
-    public String methodName;
-
-    public Byte argsCount;
-
-    public Byte[][] args;
-
-    
+    public int uniqueId;
 }

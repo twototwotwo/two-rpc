@@ -41,12 +41,10 @@ public class ProtocolChannelHandler extends ByteToMessageCodec<Protocol> {
         }else {
             byteBuf.writeByte(Protocol.TYPE_RESPONSE);
         }
-
-        
     }
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-
+        
     }
 }

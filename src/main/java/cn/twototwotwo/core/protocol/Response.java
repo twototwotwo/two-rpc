@@ -1,10 +1,11 @@
-package cn.twototwotwo.core.result;
+package cn.twototwotwo.core.protocol;
 
 import java.util.Map;
 
-public class Result<T> {
-    private Map<String, String> headers;
-    private T data;
+public class Response extends Protocol{
+    public Response() {
+        type = TYPE_RESPONSE;
+    }
     
-    
+    private byte[] data;
 }

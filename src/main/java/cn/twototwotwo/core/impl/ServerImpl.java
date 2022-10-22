@@ -1,7 +1,7 @@
 package cn.twototwotwo.core.impl;
 
 import cn.twototwotwo.core.Server;
-import cn.twototwotwo.netty.ChannelHandlerImpl;
+import cn.twototwotwo.netty.ProtocolChannelHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -26,7 +26,7 @@ public class ServerImpl implements Server {
             protected void initChannel(SocketChannel socketChannel) throws Exception {
                 // TODO add handler
                 System.out.println(22);
-                socketChannel.pipeline().addLast(new ChannelHandlerImpl());
+                socketChannel.pipeline().addLast(new ProtocolChannelHandler());
             }
         })
         .option(ChannelOption.SO_BACKLOG, 1024)
